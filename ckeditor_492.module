@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Module file for the ckeditor_491 module.
+ */
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function ckeditor_491_library_info_alter(&$libraries, $extension) {
+  // Update CKEditor to version 4.9.1.
+  if ($extension == 'core' && isset($libraries['ckeditor'])) {
+    // Verify existing version is older than the one we are updating to.
+    if (version_compare($libraries['ckeditor']['version'], '4.9.1', '<')) {
+
+      $libraries['ckeditor']['version'] = '4.9.1';
+
+      $old_path = 'assets/vendor/ckeditor';
+      $new_path = '/' . drupal_get_path('module', 'ckeditor_491') . '/js/ckeditor';
+      $new_js = array();
+      $replacements = array(
+        $old_path . '/ckeditor.js' => $new_path . '/ckeditor.js',
+      );
+      foreach ($libraries['ckeditor']['js'] as $source => $options) {
+        if (isset($replacements[$source])) {
+          $new_js[$replacements[$source]] = $options;
+        }
+        else {
+          $new_js[$source] = $options;
+        }
+      }
+      $libraries['ckeditor']['js'] = $new_js;
+    }
+  }
+}

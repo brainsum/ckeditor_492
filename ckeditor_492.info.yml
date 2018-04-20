@@ -1,0 +1,5 @@
+name: CKEditor 4.9.2
+type: module
+description: Change core CKEditor to 4.9.2 version if in the core is older one.
+core: 8.x
+package: Brainsum

@@ -1,0 +1,13 @@
+{
+    "name": "brainsum/ckeditor_492",
+    "license": "GPL-2.0+",
+    "description": "Drupal module for updating CKEditor to 4.9.2 version.",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "szato",
+            "email": "tszanyi@brainsum.com"
+        }
+    ],
+    "require": {}
+}
