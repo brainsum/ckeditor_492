@@ -8,7 +8,7 @@
 /**
  * Implements hook_library_info_alter().
  */
-function ckeditor_491_library_info_alter(&$libraries, $extension) {
+function ckeditor_492_library_info_alter(&$libraries, $extension) {
   // Update CKEditor to version 4.9.2.
   if ($extension == 'core' && isset($libraries['ckeditor'])) {
     // Verify existing version is older than the one we are updating to.
